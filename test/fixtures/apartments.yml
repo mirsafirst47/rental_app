@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  bathroom_num: 1
+  bedroom_num: 1
+  neighborhood: one
+  broker: one
+
+two:
+  address: MyString
+  bathroom_num: 1
+  bedroom_num: 1
+  neighborhood: two
+  broker: two

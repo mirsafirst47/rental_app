@@ -1,0 +1,2 @@
+class RentalApplicationsController < ApplicationController
+end
