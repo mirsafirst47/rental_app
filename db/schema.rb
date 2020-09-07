@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_164316) do
     t.integer "bathroom_num"
     t.integer "bedroom_num"
     t.float "rent_amount"
+    t.integer "broker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "broker_id"
     t.integer "neighborhood_id"
   end
 
@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_164316) do
   end
 
   create_table "rental_applications", force: :cascade do |t|
-    t.datetime "date"
-    t.integer "application_number"
+    t.string "neighborhood"
+    t.string "apartment_address"
+    t.string "description"
     t.integer "tenant_id"
     t.integer "apartment_id"
     t.datetime "created_at", precision: 6, null: false

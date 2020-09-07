@@ -1,0 +1,5 @@
+<h2> These are the apartments for: <%= @neighborhood.name %> | Safety level: <%= @neighborhood.safety_level%> </h2>
+
+<% @neighborhood.apartments.each do |apt| %>
+    <li> <%= link_to apt.address, apartment_path(@apartment) %> </li>
+<% end %>

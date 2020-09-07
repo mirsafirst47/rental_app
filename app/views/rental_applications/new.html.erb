@@ -1,0 +1,24 @@
+<h1>File A New Rent Application</h1>
+
+<%# this page handles the creation of a new rent application %>
+<%if @errors%>
+    <% @errors.each do |error|%>
+        <div style="color:red"><%= error %></div>
+    <%end%>
+<%end%>
+
+<%= form_for @rental_application do |f|%>
+    <%= f.label :neighborhood, "Select a neighborhood:" %><br>
+    <%= f.collection_select :neighborhood, @neighborhoods, :id, :name%>
+    <br>
+    <br>
+    <%= f.label :apartment_address, "Select an apartment:" %><br>
+    <%= f.collection_select :apartment_id, @apartments, :id, :address %>
+    <br>
+    <br>
+    <%= f.label :description, "Description:"%><br>
+    <%= f.text_area :description, cols: "40", rows: "7" %>
+    <br>
+    <br>
+    <%= f.submit "Submit Application" %>
+<% end %>
