@@ -1,0 +1,16 @@
+<h1>Welcome</h1>
+
+<% if @error %>
+    <p><%= @error %></p>
+<% end %>
+
+<%# THE FORM BELOW MAKES A POST REQUEST TO "/send_the_form_here" %>
+
+<%= form_tag "/send_the_form_here" do %>
+    <%= label_tag :email_address %>
+    <%= text_field_tag :email_address %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Login" %>
+    <p>If you don't have an account:  <%= link_to "Sign Up", new_tenant_path %></p>
+<% end %>
