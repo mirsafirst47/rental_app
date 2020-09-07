@@ -7,9 +7,9 @@ class TenantsController < ApplicationController
     #     @tenants = Tenant.all
     # end
 
-    # def show 
-    #     @tenant = Tenant.find(params[:id])
-    # end
+    def show 
+        @tenant = Tenant.find(params[:id])
+    end
 
     def login
       @error = flash[:error]
@@ -35,13 +35,15 @@ class TenantsController < ApplicationController
     def new
         @errors = flash[:errors]
         @tenant = Tenant.new
+        @neighborhoods = Neighborhood.all
+        @rental_applications = RentalApplication.all
       end
       
       def create
       @tenant = Tenant.create(tenant_params)
         if @tenant.valid?
           session[:tenant_id] = @tenant.id
-          redirect_to rental_applications_path
+          redirect_to new_rental_application_path
         else 
           flash[:errors] = @tenant.errors.full_messages
           redirect_to new_tenant_path

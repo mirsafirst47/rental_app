@@ -15,6 +15,7 @@ class RentalApplicationsController < ApplicationController
         @errors = flash[:errors]
         @neighborhoods = Neighborhood.all
         @apartments = Apartment.all
+        @tenants = Tenant.all
     end
 
     def create
