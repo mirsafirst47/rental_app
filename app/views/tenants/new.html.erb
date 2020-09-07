@@ -1,0 +1,23 @@
+<h1> Create a profile </h1>
+
+<% if @errors %>
+  <% @errors.each do |error|%>
+    <p style= "color: red"> <%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_for @tenant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br/>
+  <br>
+  <%= f.label :age %>
+  <%= f.number_field :age %><br/>
+  <br>
+  <%= f.label :email_address %>
+  <%= f.text_field :email_address %><br/>
+  <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %><br/>
+  <br>
+  <%= f.submit "Sumbit" %>
+<% end %>

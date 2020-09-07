@@ -4,5 +4,15 @@ Rails.application.routes.draw do
   resources :neighborhoods
   resources :brokers
   resources :tenants
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root "tenants#login"
+
+  # GET THE USER THE LOGIN FORM
+  get "/index", to: "tenants#index"
+  get "/login", to: "tenants#login", as: "login"
+  # HANDLE THE LOGIN FORM SUBMISSION
+  post "/send_the_form_here", to: "tenants#handle_login"
+  delete "/logout", to: "tenants#logout", as: "logout"
+  
+  
 end
