@@ -1,5 +1,9 @@
 <h1> These are all your applications</h1>
 
-<% @rental_applications.each do |rental_app| %>
-    <%= rental_app.neighborhood %>
-<% end %>
+<ul>
+    <% @rental_applications.each do |rental_app| %>
+        <li>
+            <%= rental_app.apartment %>
+        </li>
+    <% end %>
+</ul>

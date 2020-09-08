@@ -8,11 +8,7 @@
 <%end%>
 
 <%= form_for @rental_application do |f|%>
-    <%= f.label :neighborhood, "Select a neighborhood:" %><br>
-    <%= f.collection_select :neighborhood, @neighborhoods, :id, :name%>
-    <br>
-    <br>
-    <%= f.label :apartment_address, "Select an apartment:" %><br>
+    <%= f.label :apartment_id, "Select an apartment:" %><br>
     <%= f.collection_select :apartment_id, @apartments, :id, :address %>
     <br>
     <br>
