@@ -1,5 +1,4 @@
-<h1>File A New Rent Application</h1>
-
+<h1> Selected Apartment:</h1>
 <%# this page handles the creation of a new rent application %>
 <%if @errors%>
     <% @errors.each do |error|%>
@@ -8,10 +7,6 @@
 <%end%>
 
 <%= form_for @rental_application do |f|%>
-    <%= f.label :apartment_id, "Select an apartment:" %><br>
-    <%= f.collection_select :apartment_id, @apartments, :id, :address %>
-    <br>
-    <br>
     <%= f.label :description, "Description:"%><br>
     <%= f.text_area :description, cols: "40", rows: "7" %>
     <br>

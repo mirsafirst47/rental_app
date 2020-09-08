@@ -1,0 +1,5 @@
+<h2> These are all the brokers </h2>
+<ul>
+<% @brokers.each do |broker| %>
+    <li><%= link_to broker.name, broker_path(broker) %></li>
+<% end %>

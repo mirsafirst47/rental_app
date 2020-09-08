@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :rental_applications, except: [:edit, :update]
   resources :apartments, only: [:index, :show]
   resources :neighborhoods, only: [:index, :show]
-  resources :brokers
+  resources :brokers, only: [:index, :show]
   resources :tenants
 
   root "tenants#login"

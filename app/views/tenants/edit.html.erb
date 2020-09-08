@@ -1,0 +1,11 @@
+<h1> Edit info of <%= @tenant.name %> </h1>
+
+<%= form_for @tenant do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br/>
+  <br>
+  <%= f.label :email_address %>
+  <%= f.text_field :email_address %><br/>
+  <br>
+  <%= f.submit "Edit!" %>
+<% end %>

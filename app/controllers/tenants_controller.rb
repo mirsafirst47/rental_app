@@ -46,7 +46,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.create(tenant_params)
     if @tenant.valid?
       session[:tenant_id] = @tenant.id
-      redirect_to new_rental_application_path
+      redirect_to neighborhoods_path
     else 
       flash[:errors] = @tenant.errors.full_messages
       redirect_to new_tenant_path
@@ -54,7 +54,7 @@ class TenantsController < ApplicationController
   end
 
   def edit
-    @tenant = @tenant
+    @tenant = @current_tenant
   end
 
   def update
@@ -62,7 +62,7 @@ class TenantsController < ApplicationController
     redirect_to tenant_path(@tenant)
   end
 
-  def delete
+  def destroy
     @tenant.destroy
     redirect_to new_tenant_path
   end

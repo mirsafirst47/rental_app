@@ -1,0 +1,4 @@
+<h2> These are the apartments for: <%= @broker.name %> </h2>
+<% @broker.apartments.each do |brok| %>
+    <li> <%= link_to brok.address %> </li>
+<% end %>

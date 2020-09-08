@@ -7,5 +7,6 @@ class NeighborhoodsController < ApplicationController
     def show
         @neighborhood = Neighborhood.find(params[:id])
         @apartment = Apartment.find(params[:id])
+        @rental_application = RentalApplication.new
     end
 end
