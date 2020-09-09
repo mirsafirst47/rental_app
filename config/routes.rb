@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   resources :tenants
 
   root "tenants#login"
+  get 'welcome/index', to: 'welcome#index'
+  # root 'welcome#index'
+  
+  get "/profile", to: "tenants#profile", as: "profile"
 
   # GET THE USER THE LOGIN FORM
   get "/index", to: "tenants#index"

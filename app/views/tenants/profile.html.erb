@@ -1,0 +1,20 @@
+<h1>Welcome to the Profile Page!</h1>
+
+<h2>Name: <%= @current_tenant.name %> </h2>
+
+
+<p> 
+    <strong> Age:</strong> <%= @current_tenant.age %> years old 
+</p>
+
+<hr/>
+
+<%= form_for @current_tenant do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br/>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br/>
+    <%= f.submit %>
+<% end %> 
+<br/>
+<%= button_to "Delete profile", logout_path, method: :destroy %>

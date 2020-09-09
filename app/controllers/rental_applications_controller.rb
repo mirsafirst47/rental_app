@@ -16,7 +16,9 @@ class RentalApplicationsController < ApplicationController
     end
 
     def create
+        # @current_tenant = Tenant.find_by(id: session[:tenant_id])
         @rental_application = @current_tenant.rental_applications.create(rental_app_params)
+
         redirect_to tenant_path(@current_tenant)
         # if @rental_application.valid?
         #     redirect_to rental_applications_path(@rental_applications)

@@ -10,6 +10,23 @@
   </head>
 
   <body>
+
+  <%# if false #%>
+  <% if check_if_tenant_is_logged_in? %>
+  <nav>
+    LOGGED IN: <%= @current_tenant.name %> 
+
+    <%= button_to "LOG OUT", logout_path, method: :delete %>
+  </nav>
+<% else %>
+  <nav> 
+    <%= link_to "LOGIN PAGE", login_path %>
+
+  </nav>
+<%# end #%>
+
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
