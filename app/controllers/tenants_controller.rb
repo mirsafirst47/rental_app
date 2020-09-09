@@ -3,6 +3,10 @@ class TenantsController < ApplicationController
   before_action :get_tenant, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorized_to_see_page, only: [:login, :handle_login, :new, :create]
 
+  def profile
+    render :profile
+  end
+
   def login
     @error = flash[:error]
   end
@@ -12,7 +16,7 @@ class TenantsController < ApplicationController
     if @tenant && @tenant.authenticate(params[:password])
       # If the tenant is found AND their password matches
       session[:tenant_id] = @tenant.id
-      redirect_to tenant_path(@tenant)
+      redirect_to welcome_index_path
     else
       flash[:error] = "Incorrect e-mail address or password"
       redirect_to login_path
@@ -46,7 +50,7 @@ class TenantsController < ApplicationController
     @tenant = Tenant.create(tenant_params)
     if @tenant.valid?
       session[:tenant_id] = @tenant.id
-      redirect_to neighborhoods_path
+      redirect_to welcome_index_path
     else 
       flash[:errors] = @tenant.errors.full_messages
       redirect_to new_tenant_path
@@ -59,11 +63,11 @@ class TenantsController < ApplicationController
 
   def update
     @tenant.update(tenant_params)
-    redirect_to tenant_path(@tenant)
+    redirect_to welcome_index_path
   end
 
   def destroy
-    @tenant.destroy
+    @current_tenant.destroy
     redirect_to new_tenant_path
   end
 

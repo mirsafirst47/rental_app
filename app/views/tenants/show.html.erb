@@ -2,8 +2,8 @@
 
 <ul>
     <% @tenant.rental_applications.each do |rental_app| %>
-        <li><%=link_to rental_app.apartment.address, rental_application_path()  %> - $<%= rental_app.apartment.rent_amount %> </li>
+        <li> <%= link_to rental_app.apartment.address, rental_application_path() %> - $<%= rental_app.apartment.rent_amount %> </li>
     <% end %>
 </ul>
 
-<%= button_to "Goodbye, #{@tenant.name}", @tenant, :method => :delete %>
+<%= button_to "Main menu", welcome_index_path, method: :get %> <br/>
