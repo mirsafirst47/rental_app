@@ -1,8 +1,8 @@
 <h1> My applications </h1>
 
 <ul>
-    <% @tenant.rental_applications.each do |rental_app| %>
-        <li> <%= link_to rental_app.apartment.address, rental_application_path() %> - $<%= rental_app.apartment.rent_amount %> </li>
+    <% @current_tenant.rental_applications.each do |rental_app| %>
+        <li> <%= rental_app.apartment.address %> - $<%= rental_app.apartment.rent_amount %> <%= button_to "Delete", rental_app%></li>
     <% end %>
 </ul>
 

@@ -34,16 +34,19 @@ class TenantsController < ApplicationController
   end
 
   def show 
+    
     @tenant = Tenant.find(params[:id])
-    @neighborhoods = Neighborhood.all
-    @rental_applications = RentalApplication.all
+    @apartment = Apartment.find(params[:id])
   end
 
   def new
-    @errors = flash[:errors]
-    @tenant = Tenant.new
-    @neighborhoods = Neighborhood.all
-    @rental_applications = RentalApplication.all
+    if check_if_tenant_is_logged_in?
+      redirect_to welcome_index_path
+    else
+      @errors = flash[:errors]
+      @tenant = Tenant.new
+      render :new
+    end
   end
   
   def create
@@ -55,6 +58,7 @@ class TenantsController < ApplicationController
       flash[:errors] = @tenant.errors.full_messages
       redirect_to new_tenant_path
     end
+    
   end
 
   def edit
@@ -67,8 +71,9 @@ class TenantsController < ApplicationController
   end
 
   def destroy
-    @current_tenant.destroy
-    redirect_to new_tenant_path
+    
+    @tenant.destroy
+    redirect_to login_path
   end
 
   private

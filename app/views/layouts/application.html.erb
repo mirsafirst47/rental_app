@@ -1,32 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>RentalApp</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <html>
+    <head>
+      <title>RentalApp</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
 
-  <body>
+      
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-  <%# if false #%>
-  <% if check_if_tenant_is_logged_in? %>
-  <nav>
-    LOGGED IN: <%= @current_tenant.name %> 
+    <body>
 
-    <%= button_to "LOG OUT", logout_path, method: :delete %>
-  </nav>
-<% else %>
-  <nav> 
-    <%= link_to "LOGIN PAGE", login_path %>
-
-  </nav>
-<%# end #%>
-
-  <% end %>
-
-    <%= yield %>
-  </body>
+      <div class="container">
+        <% if check_if_tenant_is_logged_in? %>
+          <nav>
+          LOGGED IN: <%= @current_tenant.name %> 
+          <%= button_to "LOG OUT", logout_path, method: :delete %>
+          </nav>
+        <% else %>
+          <nav> 
+          <%= link_to "LOGIN PAGE", login_path %>
+          </nav>
+        <% end %>
+        <%= yield %>
+      </div>
+    </body>
 </html>

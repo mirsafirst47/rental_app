@@ -1,5 +1,5 @@
 <h2> These are the apartments for: <%= @neighborhood.name %> | Safety level: <%= @neighborhood.safety_level%> </h2>
 
 <% @neighborhood.apartments.each do |apt| %>
-    <li> <%= link_to apt.address, new_rental_application_path(@new_rental_application) %> </li>
+    <li> <%= link_to apt.address, apartment_id_path(apt.id) %> - Bed: <%= apt.bedroom_num %> | Bath <%= apt.bathroom_num %> | Rent: $<%= apt.rent_amount %></li>
 <% end %>
