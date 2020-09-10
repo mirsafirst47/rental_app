@@ -24,12 +24,13 @@ class RentalApplicationsController < ApplicationController
     def create
         # @current_tenant = Tenant.find_by(id: session[:tenant_id])
         @rental_application = @current_tenant.rental_applications.create(rental_app_params)
-        redirect_to rental_application_path(@rental_application)
+        redirect_to rental_applications_path
     end
 
-    def delete
+    def destroy
+        @rental_application = RentalApplication.find_by(id: params[:id])
         @rental_application.destroy
-        redirect to welcome_index_path
+        redirect_to rental_applications_path
     end
 
     private

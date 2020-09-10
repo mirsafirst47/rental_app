@@ -1,0 +1,9 @@
+<h1> My applications </h1>
+
+<ul>
+    <% @current_tenant.rental_applications.each do |rental_app| %>
+        <li> <%= rental_app.apartment.address %> - $<%= rental_app.apartment.rent_amount %> <br > Description: <%= rental_app.description %></li>
+    <% end %>
+</ul>
+
+<%= button_to "Main menu", welcome_index_path, :class => 'btn btn-outline-primary', method: :get %> <br/>

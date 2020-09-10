@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :tenants
-  resources :rental_applications, except: [:edit, :update]
+  resources :rental_applications, except: [:edit, :update, :destroy]
   resources :apartments, only: [:index, :show]
   resources :neighborhoods, only: [:index, :show]
   resources :brokers, only: [:index, :show]
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'tenants#logout', as: 'logout'
 
   get '/rental_application/apartment/:apt_id', to: 'rental_applications#new_form', as: 'apartment_id'
-  
+  delete '/rental_application/apartment/:apt_id', to: 'rental_applications#destroy', as: 'delete_app'
 end

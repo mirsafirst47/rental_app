@@ -1,6 +1,6 @@
 <h1>List of Neighborhoods</h1>
 <ul>
     <% @neighborhoods.each do |neighborhood| %>
-        <li> <%= link_to neighborhood.name, neighborhood_path(neighborhood) %> | Safety level: <%= neighborhood.safety_level %> </li>
+        <li> <%= link_to neighborhood.name, neighborhood_path(neighborhood) %> | Safety level: <%= neighborhood.safety_level %> </li><br>
     <% end %>
 </ul>

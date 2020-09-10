@@ -9,12 +9,13 @@
 <%= form_for @current_tenant do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %> <br>
-    <br>
     <%= f.label :age %>
     <%= f.number_field :age %><br>
+    <%= f.label :password %>
+    <%= f.text_field :password%>
     <br>
-    <%= f.submit %>
+    <%= f.submit "Update Info", ({:class => "btn btn-outline-secondary btn-sm"}) %>
 <% end %> 
 <br/>
 
-<%= button_to "Delete profile", @current_tenant, :method => :delete %>
+<%= button_to "Delete profile", @current_tenant, :class => "btn btn-danger", :method => :delete %>
