@@ -28,17 +28,6 @@ class TenantsController < ApplicationController
     redirect_to login_path
   end
 
-
-  def index
-        @tenants = Tenant.all
-  end
-
-  def show 
-    
-    @tenant = Tenant.find(params[:id])
-    @apartment = Apartment.find(params[:id])
-  end
-
   def new
     if check_if_tenant_is_logged_in?
       redirect_to welcome_index_path
@@ -71,12 +60,12 @@ class TenantsController < ApplicationController
   end
 
   def destroy
-    
     @tenant.destroy
     redirect_to login_path
   end
 
   private
+
   def get_tenant
     @tenant = Tenant.find(params[:id])
   end

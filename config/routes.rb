@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   root 'tenants#login'
   get 'welcome/index', to: 'welcome#index'
-  # root 'welcome#index'
   
   get '/profile', to: 'tenants#profile', as: 'profile'
 
@@ -21,5 +20,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'tenants#logout', as: 'logout'
 
   get '/rental_application/apartment/:apt_id', to: 'rental_applications#new_form', as: 'apartment_id'
-  delete '/rental_application/apartment/:apt_id', to: 'rental_applications#destroy', as: 'delete_app'
+
 end
